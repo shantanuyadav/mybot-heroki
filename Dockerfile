@@ -1,5 +1,12 @@
 FROM ubuntu:20.04
 
+
+ENV TZ=Asia/Dubai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN apt update
+RUN apt install -y tzdata
+
 WORKDIR /usr/src/app
 RUN chmod 777 /usr/src/app
 
